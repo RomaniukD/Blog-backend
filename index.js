@@ -11,7 +11,7 @@ import {checkAuth, handleValidationErrors} from "./utils/index.js";
 import {UserController, PostController, CommentController} from "./controllers/index.js";
 
 mongoose
-.connect('mongodb+srv://RomaniukDenys:12345@cluster0.uicrt.mongodb.net/blog?retryWrites=true&w=majority&appName=Cluster0')
+.connect(process.env.MONGODB_URL)
 .then(() => console.log('DB ok'))
 .catch((err) => console.log('DB error', err));
 
@@ -53,7 +53,7 @@ app.post('/posts', checkAuth, postCreateValidation, handleValidationErrors, Post
 app.delete('/posts/:id', checkAuth, PostController.remove);
 app.patch('/posts/:id', checkAuth, postCreateValidation, handleValidationErrors, PostController.update);
 
-app.listen(4444, (err) => {
+app.listen(process.env.PORT || 4444, (err) => {
     if(err) {
         console.log(err)
     }
