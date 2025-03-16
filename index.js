@@ -32,7 +32,6 @@ const upload = multer({ storage });
 app.use(express.json());
 app.use(cors({
     origin: 
-    process.env.CORS_ORIGIN,
     process.env.CORS_ORIGIN2
     || "http://localhost:3000",
   }));
