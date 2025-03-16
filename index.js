@@ -30,7 +30,9 @@ const storage = multer.diskStorage({
 const upload = multer({ storage });
 
 app.use(express.json());
-app.use(cors({ origin: process.env.MONGODB_URL }));
+app.use(cors({
+    origin: process.env.CORS_ORIGIN || "http://localhost:3000",
+  }));
 app.use('/uploads', express.static('uploads'))
 
 app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login);
