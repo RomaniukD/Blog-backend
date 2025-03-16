@@ -36,6 +36,8 @@ app.use(cors({
     process.env.CORS_ORIGIN2
     || "http://localhost:3000",
   }));
+
+
 app.use('/uploads', express.static('uploads'))
 
 app.post('/auth/login', loginValidation, handleValidationErrors, UserController.login);
