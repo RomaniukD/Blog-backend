@@ -13,7 +13,7 @@ export const getLastTags = async (req, res) => {
     } catch(err) {
         console.log(err);
         res.status(500).json({
-            message: "Не вдалось отримати статті"        
+            message: "Unable to retrieve articles"        
     });
 };
 }
@@ -26,7 +26,7 @@ export const getAll = async (req, res) => {
     } catch(err) {
         console.log(err);
         res.status(500).json({
-            message: "Не вдалось отримати статті"        
+            message: "Unable to retrieve articles"        
     });
 };
 }
@@ -47,7 +47,7 @@ export const getOne = async (req, res) => {
         .exec();
         if (!doc) {
             return res.status(404).json({
-                message: "Стаття не знайдена"
+                message: "Article not found"
             });
         }
 
@@ -55,7 +55,7 @@ export const getOne = async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).json({
-            message: "Не вдалось отримати статтю"
+            message: "Unable to retrieve article"
         });
     }
 };
@@ -71,7 +71,7 @@ export const remove = async (req, res) => {
      
         if (!doc) {
             return res.status(404).json({
-                message: "Стаття не знайдена"
+                message: "Article not found"
             })
         }
 
@@ -82,7 +82,7 @@ export const remove = async (req, res) => {
     } catch(err) {
         console.log(err);
         res.status(500).json({
-            message: "Не вдалось видалити статті"        
+            message: "Could not delete articles"        
     });
 };
 }
@@ -103,7 +103,7 @@ export const create = async (req, res) => {
     } catch(err) {
         console.log(err);
         res.status(500).json({
-            message: "Не вдалось створити пост"
+            message: "Couldn't make the post"
         })
     }
 }
@@ -132,7 +132,7 @@ export const update = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({
-            message: 'Не вдалось обновити статтю',
+            message: 'Could not update article',
         });
     }
 };
