@@ -15,9 +15,9 @@ export const create = async (req, res) => {
 
         res.json(doc);
     } catch (err) {
-        console.error("помилка при створенні коментаря:", err);
+        console.error("An error when creating a comment:", err);
         res.status(500).json({
-            message: "Не вдалось створити коментар"
+            message: "Couldn't make a comment."
         });
     }
 };
@@ -26,11 +26,10 @@ export const getAll = async (req, res) => {
     try {
         const comments = await CommentModel.find({postId: req.params.postId});
         res.json(comments);
-        console.log("Коментарі з CommentController", comments)
     } catch(err) {
         console.log(err);
         res.status(500).json({
-            message: "Не вдалось отримати коментарі"        
+            message: "We were unable to get a comment"        
     });
 };
 }
