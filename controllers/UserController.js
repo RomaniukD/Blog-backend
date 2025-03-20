@@ -35,7 +35,7 @@ try {
 } catch (err) {
     console.log(err);
     res.status(500).json({
-        message: "Не вдалось загеєструватись" 
+        message: "Could not register" 
     })
 }
 };
@@ -48,7 +48,7 @@ export const login = async (req, res) => {
 
         if (!user) {
             return res.status(404).json({
-                message: 'Користувач не знайдений', 
+                message: 'User not found', 
             });
         }
 
@@ -56,7 +56,7 @@ export const login = async (req, res) => {
 
         if (!isValidPass) {
             return res.status(400).json({
-                message: 'Не вірний логін або пароль'
+                message: 'Invalid login or password'
             });
         }
 
@@ -80,7 +80,7 @@ export const login = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({
-        message: "Не вдалось залогуватись" 
+        message: "Failed to bail out" 
     })
     }
 };
@@ -90,7 +90,7 @@ export const getMe = async (req, res) => {
         const user = await UserModel.findById(req.userId);
         if (!user) {
             return res.status(404).json({
-                message: 'Користувач не знайдений',
+                message: 'User not found',
             })
         }
         const {passwordHash, ...userData} = user._doc;
@@ -99,7 +99,7 @@ export const getMe = async (req, res) => {
     } catch (err) {
         console.log(err);
         res.status(500).json({
-        message: "Немає доступу" 
+        message: "No access" 
     })
     }
 };
