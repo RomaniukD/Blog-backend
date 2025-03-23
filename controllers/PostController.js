@@ -92,7 +92,7 @@ export const create = async (req, res) => {
         const doc = new PostModel({
             title: req.body.title,
             text: req.body.text,
-            imageUrl: req.body.imageUrl.split(','),
+            imageUrl: req.body.imageUrl,
             tags: req.body.tags.split(','),
             user: req.userId,
         });
