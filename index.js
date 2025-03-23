@@ -44,7 +44,7 @@ app.post('/auth/register', registerValidation, handleValidationErrors, UserContr
 app.get('/auth/me', checkAuth, UserController.getMe);
 app.post('/posts/:postId/comment',checkAuth, commentValidation, CommentController.create )
 
-app.post('/upload', checkAuth, upload.array('image', 5), (req, res) => {
+app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
     res.json({
         url: `/uploads/${req.file.originalname}`
     })
