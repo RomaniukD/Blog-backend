@@ -46,7 +46,7 @@ app.post('/posts/:postId/comment',checkAuth, commentValidation, CommentControlle
 
 app.post('/upload', checkAuth, upload.single('image'), (req, res) => {
     res.json({
-        url: `/uploads/${req.file.originalname}`
+        url: 'https://api.cloudinary.com/v1_1/romaniuk-blog/image/upload'
     })
 })
 
